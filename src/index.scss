@@ -23,7 +23,28 @@ body {
   margin: 0;
 }
 
-#story-structure-container {
+textarea {
+  resize: none;
+}
+
+// STORY STRUCTURE: TITLE
+
+.title-container {
+  text-align: center;
+  font-size: 5vw;
+
+  h2 {
+    margin: 5vh 0 0 0;
+  }
+
+  button {
+    margin-bottom: 5vh;
+  }
+}
+
+// STORY STRUCTURE: STORY CHART
+
+.story-structure-container {
   @include noselect;
 
   position: relative;
@@ -53,15 +74,21 @@ body {
       }
 
       p.description {
+        margin: 0 auto;
+        width: 90%;
         position: absolute;
-        top: 20%;
+        top: 10%; right: 5%;
       }
 
       p.section-title {
         position: absolute;
         bottom: 0;
       }
+    }
 
+    // this is to remove the extraneous border that squishes against the window
+    div.first-div {
+      border: none;
     }
 
     div:hover {
@@ -69,4 +96,15 @@ body {
       background-color: rgba(100, 100, 100, 0.8);
     }
   }
+}
+
+// STORY STRUCTURE: CARD CONTAINER
+
+
+.story-card {
+  text-align: center;
+  width: 50vw;
+  border: 1px solid black;
+  margin: 10px auto;
+  padding: 1vh 5vw;
 }

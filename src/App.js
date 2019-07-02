@@ -1,20 +1,18 @@
-import React from 'react';
-import storyImg from './story-structure.png';
-import HoverCard from './HoverCard'
+import React, {Fragment} from 'react';
+import StoryChart from './storystructure/StoryChart'
+import CardContainer from './storystructure/CardContainer'
+import Checkbox from './storystructure/CheckBox'
+import Title from './storystructure/Title'
 
-const renderHoverCards = () => {
-  const sectionTitles = ["exposition", "conflict", "rising action", "climax", "falling action"]
-  return sectionTitles.map(title => <HoverCard key={title} sectionTitle={title} />)
-}
+function App(props) {
 
-function App() {
   return (
-    <div id="story-structure-container">
-      <img alt="story structure" src={storyImg}/>
-      <div className="invisible-hover">
-        {renderHoverCards()}
-      </div>
-    </div>
+    <Fragment>
+      <Title/>
+      <StoryChart/>
+      <Checkbox/>
+      <CardContainer/>
+    </Fragment>
   );
 }
 
