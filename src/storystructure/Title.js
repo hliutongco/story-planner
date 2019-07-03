@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {Fragment, useState} from 'react';
 import {connect} from 'react-redux'
 import {changeTheTitle} from '../redux/actions';
 
@@ -12,14 +12,29 @@ const Title = (props) => {
     toggleClicked(false)
   }
 
+  const regularView = () => {
+    return (
+      <Fragment>
+        <h2>{title}</h2>
+        <button onClick={() => toggleClicked(true)}>Edit Title</button>
+      </Fragment>
+    )
+  }
+
+  const formView = () => {
+    return (
+      <Fragment>
+        <br/>
+        <input type="text" value={userInput} onChange={(event) => changeInput(event.target.value)} />
+        <br/>
+        <button onClick={handleSubmit}>Submit</button>
+      </Fragment>
+    )
+  }
+
   return (
     <div className="title-container">
-      <h2>{title}</h2>
-      <button onClick={() => toggleClicked(true)}>Edit Title</button>
-      <br/>
-      <input type="text" value={userInput} onChange={(event) => changeInput(event.target.value)} />
-      <br/>
-      <button onClick={handleSubmit}>Submit</button>
+      {clicked ? formView() : regularView()}
     </div>
   );
 }

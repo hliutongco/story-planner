@@ -8,7 +8,7 @@ const CheckBox = (props) => {
   useEffect(() => { checkedBoolean ? changeTheTurn(true) : changeTheTurn(false) }, [checkedBoolean, changeTheTurn])
 
   return (
-    <div>
+    <div className="checkbox">
       <input type="checkbox" checked={checkedBoolean} onChange={() => changeChecked(!checkedBoolean)}/>
       Disable The Turn?
     </div>
