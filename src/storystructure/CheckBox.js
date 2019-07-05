@@ -4,7 +4,7 @@ import {changeTheTurn} from '../redux/actions';
 
 const CheckBox = (props) => {
   const {changeTheTurn} = props
-  const [checkedBoolean, changeChecked] = useState(false)
+  const [checkedBoolean, changeChecked] = useState(!props.sectionTitles.includes("the turn"))
   useEffect(() => { checkedBoolean ? changeTheTurn(true) : changeTheTurn(false) }, [checkedBoolean, changeTheTurn])
 
   return (
@@ -15,6 +15,8 @@ const CheckBox = (props) => {
   );
 }
 
+const mapStateToProps = ({sectionTitles}) => ({sectionTitles})
+
 const mapDispatchToProps = (dispatch) => {
 
   return {
@@ -22,4 +24,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(CheckBox);
+export default connect(mapStateToProps, mapDispatchToProps)(CheckBox);
