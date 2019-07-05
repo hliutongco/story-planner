@@ -27,19 +27,11 @@ function App(props) {
     )
   }
 
-  const renderCharacters = () => {
-    return (
-      <Fragment>
-        <CharacterContainer/>
-      </Fragment>
-    )
-  }
-
   return (
     <Fragment>
       <Title/>
       {renderButtons()}
-      { viewStory ? renderStory() : renderCharacters() }
+      { viewStory ? renderStory() : <CharacterContainer/> }
     </Fragment>
   );
 }
