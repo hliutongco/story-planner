@@ -9,7 +9,8 @@ const initialState = {
     climax: "Please add a description",
     "falling action": "Please add a description"
   },
-  sectionTitles: ["exposition", "conflict", "rising action", "the turn", "climax", "falling action"]
+  sectionTitles: ["exposition", "conflict", "rising action", "the turn", "climax", "falling action"],
+  characters: []
 }
 
 // Eventual structure:
@@ -52,6 +53,11 @@ export const reducer = (state = initialState, action) => {
           ...state.storyStructure,
           [action.payload.title]: action.payload.description
         }
+      }
+    case "ADD_CHARACTER":
+      return {
+        ...state,
+        characters: [...state.characters, action.payload]
       }
     default:
       return state

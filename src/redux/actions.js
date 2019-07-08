@@ -27,3 +27,10 @@ export const changeTheTurn = (boolean) => {
     payload: sectionTitles
   }
 }
+
+export const addCharacter = (character) => {
+  return {
+    type: "ADD_CHARACTER",
+    payload: character
+  }
+}
