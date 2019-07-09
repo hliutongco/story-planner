@@ -1,37 +1,23 @@
-import React, {Fragment, useState} from 'react';
-import StoryChart from './storystructure/StoryChart'
-import CharacterContainer from './characters/CharacterContainer'
-import CardContainer from './storystructure/CardContainer'
-import Checkbox from './storystructure/CheckBox'
-import Title from './storystructure/Title'
+import React, {Fragment} from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './auth/Home'
+import SignIn from './auth/SignIn'
+import SignUp from './auth/SignUp'
+import Landing from './auth/Landing'
+import Navigation from './Navigation'
+import * as ROUTES from './routes';
 
 function App(props) {
-  const [viewStory, toggleView] = useState(true)
-
-  const renderButtons = () => {
-    return (
-      <Fragment>
-        <button onClick={() => toggleView(true)}>Story</button>
-        <button onClick={() => toggleView(false)}>Characters</button>
-      </Fragment>
-    )
-  }
-
-  const renderStory = () => {
-    return (
-      <Fragment>
-        <StoryChart/>
-        <Checkbox/>
-        <CardContainer/>
-      </Fragment>
-    )
-  }
 
   return (
     <Fragment>
-      <Title/>
-      {renderButtons()}
-      { viewStory ? renderStory() : <CharacterContainer/> }
+      <Router>
+        <Navigation/>
+        <Route exact path={ROUTES.LANDING} component={Landing}/>
+        <Route path={ROUTES.SIGN_UP} component={SignUp}/>
+        <Route path={ROUTES.SIGN_IN} component={SignIn}/>
+        <Route path={ROUTES.HOME} component={Home}/>
+      </Router>
     </Fragment>
   );
 }
